@@ -1,7 +1,20 @@
-<h2>new record</h2>
 
-<%= form_with  model: @person do |form| %>
-  <%= form.text_field :name %>
-  <%= form.text_field :parent %>
-    <%= form.submit "Create" %>
-<% end %>
+
+
+<div class="conatiner w-50 border p-3 shadow">
+    <h2>Add New Person</h2>
+    <%= form_with  model: @person, local: true, class: "form" do |form| %>
+
+        <div  class="mb-3">
+            <%= form.label :name , class: 'form-label'%>
+            <%= form.text_field :name  , class: 'form-control' %>
+        </div>
+        <div class="mb-3">
+            <%= form.label :parent , class: 'form-label'%>
+            <%= form.text_field :parent , class: 'form-control' %>
+        </div>
+        <div class="mb-3">
+            <%= form.submit "Add", class: 'btn btn-primary' %>
+        </div>
+    <% end %>
+</div>

@@ -1,4 +1,4 @@
-<h1>index</h1>
+<h1>People</h1>
 
 <% @people.each do |person|%>
      <div class="card m-3">
@@ -8,7 +8,7 @@
         <div class="card-body">
             <h5 class="card-title">Name : <%= person.name%></h5>
             <p class="card-text">Parent :<%= person.parent%></p>
-            <a href="#" class="btn btn-primary">Show</a>
+            <%= link_to 'show', person_path(person)  , class: 'btn btn-primary' %>
         </div>
     </div> 
 <% end %>

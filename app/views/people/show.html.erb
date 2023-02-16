@@ -1,4 +1,24 @@
-<h2>show single person</h2>
+<% if flash[:notice] %>
+  <div class="alert alert-success"><%= flash[:notice] %></div>
+<% end %>
 
-<h3><%= @person.name%></h3>
-<p><%= @person.parent%></p>
+<div class= "conatiner border rounded p-3 w-50 shadow">
+    <h3>Name: <%= @person.name%></h3>
+    <p>Parent: <%= @person.parent%></p>
+
+    <h5>Child List</h5>
+    <ul>
+      <% @child.each do |child| %>
+        <li><%= child.name%> </li>
+      <% end %>
+    </ul>
+
+    <div class="d-flex mt-3">
+        <%= link_to 'Edit' , edit_person_path(@person) , class: "btn btn-primary me-3" %>
+       <%= button_to "Delete", person_path(@person),  
+                              method: :delete , 
+                              form: { data: { turbo_confirm: "Are you sure?" } },
+                              class: "btn btn-primary me-3" %> 
+       <%= link_to 'Back' , people_path , class: "btn btn-primary me-3" %>
+    </div>
+</div>
