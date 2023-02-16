@@ -1,0 +1,7 @@
+<h2>new record</h2>
+
+<%= form_with  model: @person do |form| %>
+  <%= form.text_field :name %>
+  <%= form.text_field :parent %>
+    <%= form.submit "Create" %>
+<% end %>
